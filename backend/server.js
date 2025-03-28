@@ -7,31 +7,51 @@ import productRouter from './routes/productRoute.js'
 import cors from "cors";
 import cartRouter from './routes/cartRoute.js'
 import orderRouter from './routes/orderRoute.js'
-//app config
-const app= express()
-const port= process.env.PORT || 4000
+
+// App config
+const app = express()
+const port = process.env.PORT || 4000
+
+// Database connections
 connectDB()
 connectCloudinary()
 
-//middleware
-app.use(express.json()); // Parses JSON data
-app.use(express.urlencoded({ extended: true })); // Parses form data
-// Allow specific origins
-const allowedOrigins = ['http://localhost:5173', 'http://localhost:5174'];
+// CORS configuration
+const allowedOrigins = [
+  'http://localhost:5173', 
+  'http://localhost:5174',
+  'https://forever-frontend-lemon-psi.vercel.app',
+  'https://forever-frontend.vercel.app'
+];
 
-app.use(cors({
-  origin: allowedOrigins,
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+      callback(null, true)
+    } else {
+      callback(new Error('Not allowed by CORS'))
+    }
+  },
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  allowedHeaders: ['Content-Type', 'Authorization', 'token']
-}));
-//api endpoints
-app.use('/api/user',userRouter)
-app.use('/api/product',productRouter)
-app.use('/api/cart',cartRouter)
-app.use('/api/order',orderRouter)
+  allowedHeaders: ['Content-Type', 'Authorization', 'token'],
+  credentials: true
+}
 
+// Middleware
+app.use(cors(corsOptions));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-app.get('/',(req,res)=>{
-    res.send('api Working')
+// API endpoints
+app.use('/api/user', userRouter)
+app.use('/api/product', productRouter)
+app.use('/api/cart', cartRouter)
+app.use('/api/order', orderRouter)
+
+// Health check endpoint
+app.get('/', (req, res) => {
+    res.send('API Working')
 })
-app.listen(port,()=>console.log('server ha started on '+port))
+
+// Start server
+app.listen(port, () => console.log(`Server started on port ${port}`))
