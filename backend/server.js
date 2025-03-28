@@ -20,9 +20,11 @@ connectCloudinary()
 const allowedOrigins = [
   'http://localhost:5173', 
   'http://localhost:5174',
-  'https://forever-frontend-lemon-psi.vercel.app',
-  'https://forever-frontend.vercel.app',
-  'https://forever-admin-ruby-six.vercel.app'
+  'https://forever-frontend-lemon-psi.vercel.app', // Frontend
+  'https://forever-admin-ruby-six.vercel.app',     // Admin
+  'https://forever-frontend.vercel.app',           // Alternate frontend domain
+  'https://forever-admin.vercel.app' ,
+  'https://forever-backend-murex-three.vercel.app/api/order/place'
 ];
 
 const corsOptions = {
