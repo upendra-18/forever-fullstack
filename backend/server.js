@@ -21,7 +21,8 @@ const allowedOrigins = [
   'http://localhost:5173', 
   'http://localhost:5174',
   'https://forever-frontend-lemon-psi.vercel.app',
-  'https://forever-frontend.vercel.app'
+  'https://forever-frontend.vercel.app',
+  'https://forever-admin-ruby-six.vercel.app'
 ];
 
 const corsOptions = {
