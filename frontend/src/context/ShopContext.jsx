@@ -124,7 +124,7 @@ const getUsercart = async () => {
 
 const getProductData = async () => {
   try {
-    const response = await axios.get('/api/product/list')
+    const response = await axios.get(backendUrl+'/api/product/list')
     if(response.data.succes){
       setProducts(response.data.products);
     }else{
