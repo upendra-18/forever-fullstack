@@ -35,7 +35,7 @@ const Navbar = () => {
                 <hr className='w-2/4 border-none h-[1.5px] bg-gray-700 hidden'/>
             </NavLink>
             <NavLink to='https://forever-admin-ruby-six.vercel.app' className='flex flex-col items-center gap-1'>
-                <p>ADMIN CONTROL</p>
+                <p>ADMIN  CONTROL</p>
                 <hr className='w-2/4 border-none h-[1.5px] bg-gray-700 hidden'/>
             </NavLink>
         </ul>
@@ -71,7 +71,7 @@ const Navbar = () => {
                 <NavLink onClick={()=>setVisible(false)} to='/collection' className='py-2 pl-6 border'>COLLECTION</NavLink>
                 <NavLink onClick={()=>setVisible(false)} to='/about' className='py-2 pl-6 border'>ABOUT</NavLink>
                 <NavLink onClick={()=>setVisible(false)} to='/contact' className='py-2 pl-6 border'>CONTACT</NavLink>
-                <NavLink onClick={()=>setVisible(false)} to='https://forever-admin-ruby-six.vercel.app' className='py-2 pl-6 border'>ADMIN CONTROL</NavLink>
+                <NavLink onClick={()=>setVisible(false)} to='https://forever-admin-ruby-six.vercel.app' className='py-2 pl-6 border'>ADMIN  CONTROL</NavLink>
             </div>
         </div>
     </div>
